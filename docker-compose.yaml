@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  poetry-docker-build-and-run:
+    build:
+      context: .
+      target: development
+    ports:
+      - "18001:18001"
+    volumes:
+      - .:/app
+    working_dir: /app
+    tty: true
+    stdin_open: true
+    command: >
+      bash -c "uvicorn --host 0.0.0.0 --port 18001 --reload poetry-docker-build-and-run.main:app"
