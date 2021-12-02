@@ -4,3 +4,7 @@ __pycache__
 .pytest_cache/
 tmp
 .env
+secret.json
+**/.terraform/*
+*.tfstate
+*.tfstate.*

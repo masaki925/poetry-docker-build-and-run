@@ -32,5 +32,5 @@ FROM base as production
 RUN poetry install --no-dev
 
 EXPOSE 8080
-CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-b", ":8080", "--workers", "1", "--threads", "8", "--timeout", "0", "poetry-docker-build-and-run.main:app"]
+CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-b", ":8080", "--workers", "1", "--threads", "8", "--timeout", "0", "poetry_docker_build_and_run.main:app"]
 
