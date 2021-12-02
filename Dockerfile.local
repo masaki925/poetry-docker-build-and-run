@@ -1,0 +1,9 @@
+# syntax = edrevo/dockerfile-plus
+
+INCLUDE+ Dockerfile
+
+FROM base as development
+
+# to install dev packages
+RUN poetry install
+
