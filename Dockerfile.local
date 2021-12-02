@@ -1,7 +1,17 @@
-# syntax = edrevo/dockerfile-plus
+FROM python:3.9-slim as base
 
-INCLUDE+ Dockerfile
+RUN pip install poetry==1.1.12
+RUN poetry config virtualenvs.create false
 
+WORKDIR /app
+
+# to cache dependencies
+COPY poetry.lock pyproject.toml ./
+RUN poetry install --no-dev
+
+COPY src ./src
+
+#######################################
 FROM base as development
 
 # to install dev packages
