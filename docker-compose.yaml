@@ -12,4 +12,4 @@ services:
     tty: true
     stdin_open: true
     command: >
-      bash -c "uvicorn --host 0.0.0.0 --port 18001 --reload poetry-docker-build-and-run.main:app"
+      bash -c "uvicorn --host 0.0.0.0 --port 18001 --reload poetry_docker_build_and_run.main:app"
