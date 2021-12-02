@@ -7,13 +7,10 @@ steps:
 - name: 'test_runner'
   args: ['pytest', '-v', 'tests']
 
-# Build the container image
+# Build and push the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/${_APP_NAME}:${SHORT_SHA}', '.', '--target', 'production']
-
-# Push the container image to Container Registry
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/${_APP_NAME}:$SHORT_SHA']
+  images: ['gcr.io/$PROJECT_ID/${_APP_NAME}:${SHORT_SHA}']
 
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
