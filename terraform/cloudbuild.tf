@@ -11,7 +11,7 @@ resource "google_cloudbuild_trigger" "poetry-docker-build-and-run-pr" {
     }
   }
 
-  filename = "cloudbuild.yaml"
+  filename = "cloudbuild-pr.yaml"
 
   substitutions = {
     _ENV = "pr-"
@@ -31,7 +31,7 @@ resource "google_cloudbuild_trigger" "poetry-docker-build-and-run-dev" {
     }
   }
 
-  filename = "cloudbuild.yaml"
+  filename = "cloudbuild-main.yaml"
 
   substitutions = {
     _ENV = "dev"

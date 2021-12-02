@@ -1,11 +1,4 @@
 steps:
-# Build the container image for test
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'test_runner', '.', '--target', 'test']
-
-# test
-- name: 'test_runner'
-
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/${_APP_NAME}:${SHORT_SHA}', '.', '--target', 'production']
@@ -18,7 +11,7 @@ steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
   args: [
-    'run', 'deploy', '${_APP_NAME}-${_ENV}${_PR_NUMBER}',
+    'run', 'deploy', '${_APP_NAME}-${_ENV}',
     '--image', 'gcr.io/$PROJECT_ID/${_APP_NAME}:$SHORT_SHA',
     '--region', 'asia-northeast1',
     '--platform', 'managed'
