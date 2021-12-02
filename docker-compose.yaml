@@ -3,6 +3,7 @@ services:
   poetry-docker-build-and-run:
     build:
       context: .
+      dockerfile: Dockerfile.dev
       target: development
     ports:
       - "18001:18001"
