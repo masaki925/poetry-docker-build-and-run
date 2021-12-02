@@ -1,7 +1,7 @@
 steps:
 # Build the container image for test
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-f', 'Dockerfile.local', '-t', 'test_runner', '.', '--target', 'development']
+  args: ['build', '-f', 'Dockerfile.dev', '-t', 'test_runner', '.', '--target', 'development']
 
 # test
 - name: 'test_runner'
