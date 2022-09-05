@@ -1,4 +1,4 @@
-TBD: a blog article will be published soon.
+An article of this repo: https://blog.studysapuri.jp/entry/Poetry-Docker-Build-and-Run
 
 This is a sample project using:
 
