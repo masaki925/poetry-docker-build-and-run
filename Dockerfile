@@ -1,6 +1,6 @@
 FROM python:3.9-slim as base
 
-RUN pip install poetry==1.1.12
+RUN pip install poetry==1.2.0
 RUN poetry config virtualenvs.create false
 
 WORKDIR /app
