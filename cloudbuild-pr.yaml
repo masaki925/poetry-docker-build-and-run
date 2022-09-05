@@ -1,7 +1,9 @@
 steps:
 # Build the container image for test
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-f', 'Dockerfile.dev', '-t', 'test_runner', '.', '--target', 'development']
+  args: ['build', '-f', 'Dockerfile', '-t', 'test_runner', '.', '--target', 'development']
+  env:
+    - "DOCKER_BUILDKIT=1"
 
 # test
 - name: 'test_runner'
@@ -10,6 +12,8 @@ steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/${_APP_NAME}:${SHORT_SHA}', '.', '--target', 'production']
+  env:
+    - "DOCKER_BUILDKIT=1"
 
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'

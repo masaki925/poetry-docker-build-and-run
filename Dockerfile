@@ -12,6 +12,12 @@ RUN poetry install --no-dev
 COPY src ./src
 
 #######################################
+FROM base as development
+
+# to install dev packages
+RUN poetry install
+
+#######################################
 FROM base as production
 
 # to install own project
