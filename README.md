@@ -40,3 +40,7 @@ $ cd poetry-docker-build-and-run
 $ docker run -it -v `pwd`:/work -w /work acidrain/python-poetry poetry install
 ```
 
+## Cookiecutter
+
+see https://github.com/masaki925/cookiecutter--poetry-docker-build-run/tree/main
+
