@@ -24,7 +24,10 @@ also, [pytest](https://docs.pytest.org/), [FastAPI](https://fastapi.tiangolo.com
 $ make
 build                          build
 curl_to_cloud_run              curl to Cloud Run (hint: ENV=pr-xxx)
+format                         pysen run format
 help                           help lists
+init                           poetry install
+lint                           pysen run lint
 server                         start server
 test                           test
 ```
