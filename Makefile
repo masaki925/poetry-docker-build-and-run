@@ -2,6 +2,10 @@
 
 .DEFAULT_GOAL := help
 
+init: ## poetry install
+	pip install --upgrade pip && pip install poetry
+	poetry install
+
 build: ## build
 	docker compose build
 
@@ -11,6 +15,12 @@ server: build ## start server
 test: build ## test
 	docker compose run --rm $(shell basename $(PWD)) \
 		pytest -v tests
+
+lint: ## pysen run lint
+	poetry run pysen run lint
+
+format: ## pysen run format
+	poetry run pysen run format
 
 ENV=dev
 GCP_RANDOM_STR=jty67w5vzq

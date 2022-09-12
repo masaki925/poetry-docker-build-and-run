@@ -1,5 +1,4 @@
 from fastapi.testclient import TestClient
-
 from poetry_docker_build_and_run.main import app
 
 client = TestClient(app)
