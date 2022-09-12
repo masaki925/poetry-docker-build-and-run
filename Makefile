@@ -13,7 +13,8 @@ test: build ## test
 		pytest -v tests
 
 ENV=dev
-CLOUD_RUN_FQDN=https://poetry-docker-build-and-run-$(ENV)-jty67w5vzq-an.a.run.app
+GCP_RANDOM_STR=jty67w5vzq
+CLOUD_RUN_FQDN=https://poetry-docker-build-and-run-$(ENV)-$(GCP_RANDOM_STR)-an.a.run.app
 
 curl_to_cloud_run: ## curl to Cloud Run (hint: ENV=pr-xxx)
 	curl "$(CLOUD_RUN_FQDN)" \
