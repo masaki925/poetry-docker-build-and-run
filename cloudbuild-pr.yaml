@@ -9,6 +9,10 @@ steps:
 - name: 'test_runner'
   args: ['pytest', '-v', 'tests']
 
+# lint
+- name: 'test_runner'
+  args: ['pysen', 'run', 'lint']
+
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/${_APP_NAME}:${SHORT_SHA}', '.', '--target', 'production']
